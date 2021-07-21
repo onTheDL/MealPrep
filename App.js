@@ -8,7 +8,7 @@ import AppLoading from "expo-app-loading";
 import MealsNavigator from "./navigation/MealsNavigator"
 
 // import CategoriesScreen from "./screens/CategoriesScreen";
-// import CategoryMealsScreen from "./screens/CategoryMealScreens";
+// import CategoryMealsScreen from "./screens/CategoryMealsScreens";
 // import FavouritesScreen from "./screens/FavouritesScreen";
 // import FiltersScreen from "./screens/FiltersScreen";
 // import MealDetailScreen from "./screens/MealDetailScreen";
