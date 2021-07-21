@@ -5,11 +5,13 @@ import { useFonts } from "expo-font";
 import * as Font from "expo";
 import AppLoading from "expo-app-loading";
 
-import CategoriesScreen from "./screens/CategoriesScreen";
-import CategoryMealsScreen from "./screens/CategoryMealScreens";
-import FavouritesScreen from "./screens/FavouritesScreen";
-import FiltersScreen from "./screens/FiltersScreen";
-import MealDetailScreen from "./screens/MealDetailScreen";
+import MealsNavigator from "./navigation/MealsNavigator"
+
+// import CategoriesScreen from "./screens/CategoriesScreen";
+// import CategoryMealsScreen from "./screens/CategoryMealScreens";
+// import FavouritesScreen from "./screens/FavouritesScreen";
+// import FiltersScreen from "./screens/FiltersScreen";
+// import MealDetailScreen from "./screens/MealDetailScreen";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -31,12 +33,7 @@ export default function App() {
     );
   }
 
-  return (
-    <View style={styles.container}>
-      <CategoriesScreen />
-    </View>
-  );
-  // }
+  return <MealsNavigator />
 }
 
 const styles = StyleSheet.create({
