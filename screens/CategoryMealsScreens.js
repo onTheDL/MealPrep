@@ -9,6 +9,10 @@ export default function CategoryMealsScreen({ navigation }) {
         title="Go to Meal Detail"
         onPress={() => navigation.navigate("MealDetail")}
       />
+      <Button
+        title="Go Back"
+        onPress={() => navigation.goBack()}  // can also use .pop() to go back only when using StackNavigator
+      />
     </View>
   );
 }
