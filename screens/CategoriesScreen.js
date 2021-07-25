@@ -17,7 +17,17 @@ function CategoriesScreen({ navigation }) {
       <TouchableOpacity
         style={styles.gridItem}
         onPress={() => {
-          navigation.navigate({ routeName: "CategoryMeals" });
+          navigation.navigate({
+            routeName: "CategoryMeals",
+            params: {
+              categoryId: itemData.item.id,
+            },
+          });
+          // ALTERNATIVE SYNTAX:
+          // navigation.navigate("CategoryMeals", {categoryId: `your-data`})
+
+          
+
         }}
       >
         <View>
