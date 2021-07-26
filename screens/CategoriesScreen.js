@@ -5,11 +5,9 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Platform,
 } from "react-native";
 
 import { CATEGORIES } from "../data/dummy-data";
-import Colors from "../constants/Colors";
 
 function CategoriesScreen({ navigation }) {
   const renderGridItem = (itemData) => {
@@ -26,7 +24,7 @@ function CategoriesScreen({ navigation }) {
           // ALTERNATIVE SYNTAX:
           // navigation.navigate("CategoryMeals", {categoryId: `your-data`})
 
-          
+
 
         }}
       >
@@ -49,10 +47,6 @@ function CategoriesScreen({ navigation }) {
 
 CategoriesScreen.navigationOptions = {
   headerTitle: "Meal Categories",
-  headerStyle: {
-    backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
-  },
-  headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
 };
 
 const styles = StyleSheet.create({
