@@ -8,30 +8,23 @@ import {
 } from "react-native";
 
 import { CATEGORIES } from "../data/dummy-data";
+import CategoryGridTile from "../components/CategoryGridTile";
 
 function CategoriesScreen({ navigation }) {
   const renderGridItem = (itemData) => {
     return (
-      <TouchableOpacity
-        style={styles.gridItem}
-        onPress={() => {
+      <CategoryGridTile
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onSelect={() =>
           navigation.navigate({
             routeName: "CategoryMeals",
             params: {
               categoryId: itemData.item.id,
             },
-          });
-          // ALTERNATIVE SYNTAX:
-          // navigation.navigate("CategoryMeals", {categoryId: `your-data`})
-
-
-
-        }}
-      >
-        <View>
-          <Text>{itemData.item.title}</Text>
-        </View>
-      </TouchableOpacity>
+          })
+        }
+      />
     );
   };
 
