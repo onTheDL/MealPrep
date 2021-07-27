@@ -1,20 +1,29 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, FlatList } from "react-native";
 
-import { CATEGORIES } from "../data/dummy-data";
+import { CATEGORIES, MEALS } from "../data/dummy-data";
 
-function selectedCategory(navigation) {
+function displayedMeals(navigation) {
   const catId = navigation.getParam("categoryId");
 
-  return CATEGORIES.find((cat) => cat.id === catId);
+  return MEALS.filter((meal) => meal.categoryIds.indexOf(catId) >= 0);
 }
 
 export default function CategoryMealsScreen({ navigation }) {
-  const { title } = selectedCategory(navigation);
+  const renderMealItem = itemData => {
+    return (
+      <View>
+        <Text>{itemData.item.title}</Text>
+      </View>
+    )
+  }
 
   return (
     <View style={styles.screen}>
-      <Text>CategoryMealsScreen</Text>
+
+      <FlatList data={displayedMeals(navigation)} keyExtractor={(item, index) => item.id} renderItem={renderMealItem} />
+
+      {/* <Text>CategoryMealsScreen</Text>
       <Text>{title}</Text>
       <Button
         title="Go to Meal Detail"
@@ -23,14 +32,16 @@ export default function CategoryMealsScreen({ navigation }) {
       <Button
         title="Go Back"
         onPress={() => navigation.goBack()} // can also use .pop() to go back only when using StackNavigator
-      />
+      /> */}
+
+
     </View>
   );
 }
 
 CategoryMealsScreen.navigationOptions = ({ navigation }) => {
   return {
-    headerTitle: selectedCategory(navigation).title,
+    headerTitle: displayedMeals(navigation).title,
   };
 };
 
