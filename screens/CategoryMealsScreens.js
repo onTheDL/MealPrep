@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, FlatList } from "react-native";
 
 import { CATEGORIES, MEALS } from "../data/dummy-data";
 
+import MealItem from "../components/MealItem";
+
 function displayedMeals(navigation) {
   const catId = navigation.getParam("categoryId");
 
@@ -10,18 +12,30 @@ function displayedMeals(navigation) {
 }
 
 export default function CategoryMealsScreen({ navigation }) {
-  const renderMealItem = itemData => {
+  const handleSelect = () => {};
+  const renderMealItem = (itemData) => {
     return (
-      <View>
-        <Text>{itemData.item.title}</Text>
-      </View>
-    )
-  }
+      <MealItem
+        title={itemData.item.title}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity.toUpperCase()}
+        affordability={itemData.item.affordability.toUpperCase()}
+        image={itemData.item.imageUrl}
+        onSelect={handleSelect}
+      />
+    );
+  };
 
   return (
     <View style={styles.screen}>
-
-      <FlatList data={displayedMeals(navigation)} keyExtractor={(item, index) => item.id} renderItem={renderMealItem} />
+      <FlatList
+        data={displayedMeals(navigation)}
+        keyExtractor={(item, index) => item.id}
+        renderItem={renderMealItem}
+        style={{
+          width: "100%",
+        }}
+      />
 
       {/* <Text>CategoryMealsScreen</Text>
       <Text>{title}</Text>
@@ -33,8 +47,6 @@ export default function CategoryMealsScreen({ navigation }) {
         title="Go Back"
         onPress={() => navigation.goBack()} // can also use .pop() to go back only when using StackNavigator
       /> */}
-
-
     </View>
   );
 }
