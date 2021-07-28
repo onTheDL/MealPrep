@@ -29,13 +29,13 @@ const MealsNavigator = createStackNavigator(
     CategoryMeals: {
       screen: CategoryMealsScreen,
     },
-    MealDetail: MealDetailScreen,
+    MealDetail: { screen: MealDetailScreen },
     // Favourites: FavouritesScreen,
     // Filters: FiltersScreen,
   },
-  { 
+  {
     defaultNavigationOptions: {
-      headerTitle: 'A Screen',
+      headerTitle: "A Screen",
       headerStyle: {
         backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
       },

@@ -12,7 +12,6 @@ function displayedMeals(navigation) {
 }
 
 export default function CategoryMealsScreen({ navigation }) {
-  const handleSelect = () => {};
   const renderMealItem = (itemData) => {
     return (
       <MealItem
@@ -21,7 +20,12 @@ export default function CategoryMealsScreen({ navigation }) {
         complexity={itemData.item.complexity.toUpperCase()}
         affordability={itemData.item.affordability.toUpperCase()}
         image={itemData.item.imageUrl}
-        onSelect={handleSelect}
+        onSelectMeal={() => {
+          navigation.navigate({
+            routeName: "MealDetail",
+            params: {mealId: itemData.item.id}
+          });
+        }}
       />
     );
   };
