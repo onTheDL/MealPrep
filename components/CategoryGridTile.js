@@ -46,7 +46,10 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 10,
     elevation: 5,
-    overflow: Platform.OS === "android" && Platform.Version >= 21 ? "hidden" : "visible", 
+    overflow:
+      Platform.OS === "android" && Platform.Version >= 21
+        ? "hidden"
+        : "visible",
     // This will hide the container's shadow
   },
   title: {
@@ -54,6 +57,5 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans-bold",
     fontSize: 20,
     textAlign: "right",
-    
   },
 });
