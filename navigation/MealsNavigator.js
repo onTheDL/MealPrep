@@ -16,14 +16,14 @@ import FavouritesScreen from "../screens/FavouritesScreen";
 import FiltersScreen from "../screens/FiltersScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
 
-const navOptions = () => {
-  return {
-    headerStyle: {
-      backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
-    },
-    headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
-  };
-};
+// const navOptions = () => {
+//   return {
+//     headerStyle: {
+//       backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
+//     },
+//     headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
+//   };
+// };
 
 const defaultStackNavOptions = {
   headerTitle: "A Screen",
@@ -90,6 +90,9 @@ const MealsFavTabNavigator =
     ? createMaterialBottomTabNavigator(tabScreenConfig, {
         activeColor: "white",
         shifting: true,
+        barStyle: {
+          backgroundColor: Colors.primaryColor,
+        },
       })
     : createBottomTabNavigator(tabScreenConfig, {
         tabBarOptions: {
@@ -99,10 +102,12 @@ const MealsFavTabNavigator =
 
 const FiltersNavigator = createStackNavigator({
   Filters: FiltersScreen,
-})
+}, {
+  defaultNavigationOptions: defaultStackNavOptions
+});
 const MainNavigator = createDrawerNavigator({
   MealsFavs: MealsFavTabNavigator,
-  Filters: FiltersNavigator
-})
+  Filters: FiltersNavigator,
+});
 
 export default createAppContainer(MainNavigator);
