@@ -8,6 +8,8 @@ import {
   ImageBackground,
 } from "react-native";
 
+import DefaultText from "./DefaultText"
+
 export default function MealItem({
   title,
   onSelectMeal,
@@ -32,9 +34,9 @@ export default function MealItem({
 
           {/* Details of recipe */}
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <Text>{duration}m</Text>
-            <Text>{complexity}</Text>
-            <Text>{affordability}</Text>
+            <DefaultText>{duration}m</DefaultText>
+            <DefaultText>{complexity}</DefaultText>
+            <DefaultText>{affordability}</DefaultText>
           </View>
         </View>
       </TouchableOpacity>
